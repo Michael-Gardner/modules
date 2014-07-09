@@ -1,0 +1,14 @@
+[main]
+    logdir = /var/log/puppet
+    rundir = /var/run/puppet
+    ssldir = $vardir/ssl
+    server = <%= @servername %>
+    environmentpath = $confdir/environments
+    basemodulepath = <%= @basemodulepath %>
+
+[agent]
+    environment = <%= @environment %>
+    runinterval = <%= @runinterval %>
+
+[master]
+    autosign = <%= @autosign %>
