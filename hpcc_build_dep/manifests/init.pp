@@ -4,14 +4,11 @@
 # License:  GPL v3
 #
 class hpcc_build_dep (
-  $dependency_hash = $hpcc_build_dep::params::dependency_hash,
+  $dependency_list = $hpcc_build_dep::params::dependency_list,
+  $cmake_src       = $hpcc_build_dep::params::cmake_src,
 ) inherits hpcc_build_dep::params
 {
-  package {
-    
+  package { $dependency_list :
     ensure => present,
   }
-
-
-
 }
