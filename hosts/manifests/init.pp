@@ -6,9 +6,9 @@
 # see hosts::params for parameter description
 #
 class hosts (
-  $servername  = $host::params::servername,
-  $serverip    = $host::params::serverip,
-  $host_source = $host::params::host_source,
+  $servername  = $hosts::params::servername,
+  $serverip    = $hosts::params::serverip,
+  $host_source = $hosts::params::host_source,
 ) inherits hosts::params 
 {   
   file { "hosts":
