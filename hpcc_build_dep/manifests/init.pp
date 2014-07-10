@@ -26,15 +26,23 @@ class hpcc_build_dep (
       path   => "/tmp/${cmake_file}",
       source => "puppet:///modules/hpcc_build_dep/${cmake_file}",
     }
+    
+    exec { 'check cmake version':
+      path    => '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin',
+      command => 'bash -c \'STR=$(cmake --verson);NSTR=${STR:0:5}-${STR:14};test \'$NSTR\' != \'"${source_dir}"\'\'',
+    }
 
     exec { 'cmake bootstrap and install':
       cwd         => '/tmp/',
+      path        => '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin',
       command     => "tar -zxf ${cmake_file};cd ${source_dir};./bootstrap;make;make install",
       refreshonly => true,
       require     => [Package['make'], Package['gcc']], 
+      timeout     => '500',
     }
      
-    File['cmake source'] ~>
-      Exec['cmake boostrap and install']
+    Exec['check cmake version'] ->
+      File['cmake source'] ~>
+        Exec['cmake bootstrap and install']
   }
 }
