@@ -16,5 +16,6 @@ class hosts::params
   case $::operatingsystem {
     'Ubuntu': { $host_source = "ubuntu.hosts.erb" }
     'CentOS': { $host_source = "centos.hosts.erb" }
+    default:  { fail("could not define opearting system"), }
   } # end case ::operatingsystem
 }
