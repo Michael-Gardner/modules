@@ -8,7 +8,13 @@ class hpcc_build_dep (
   $cmake_src       = $hpcc_build_dep::params::cmake_src,
 ) inherits hpcc_build_dep::params
 {
+  
+
   package { $dependency_list :
     ensure => present,
+  }
+
+  if ( $cmake_src ) {
+
   }
 }
