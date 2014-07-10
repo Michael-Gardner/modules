@@ -30,4 +30,5 @@ class pconf::params
   $runinterval    = '30m'
   $basemodulepath = '/usr/share/puppet/modules'
   $autosign       = 'false'
+  $pluginsync     = 'true'
 }

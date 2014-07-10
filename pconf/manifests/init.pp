@@ -5,12 +5,13 @@
 #
 # See pconf::params for information regarding parameters
 #   as well as to set the defaults for your deployment
-class pconf
+class pconf 
 ( $servername     = $pconf::params::servername,
   $environment    = $pconf::params::environment,
   $runinterval    = $pconf::params::runinterval,
   $basemodulepath = $pconf::params::basemodulepath,
   $autosign       = $pconf::params::autosign,
+  $pluginsync     = $pconf::params::pluginsync,
 ) inherits pconf::params {
   file { "puppet.conf":
     path    => "/etc/puppet/puppet.conf",
