@@ -1,23 +1,16 @@
+# Author:   Michael Jon Gardner
+# Email:    vintage910@hotmail.com
+# Date:     July 9, 2014
+# License:  GPL v3
+#
+# see hosts::params for parameter description
+#
 class hosts (
-  $servername = $host::params::server_name,
-  $serverip   = $host::params::server_ip,
+  $servername  = $host::params::servername,
+  $serverip    = $host::params::serverip,
+  $host_source = $host::params::host_source,
 ) inherits hosts::params 
-{
-  $_servername = $servername ? {
-    undef   => $::servername,
-    default => $servername,
-  }
-
-  $_serverip = $serverip ? {
-    undef   => $::serverip,
-    default => $serverip,
-  }
-
-  case $::operatingsystem {
-    'Ubuntu': { $host_source = "ubuntu.hosts.erb" }
-    'CentOS': { $host_source = "centos.hosts.erb" }
-  } # end case ::operatingsystem
-    
+{   
   file { "hosts":
     path    => "/etc/hosts",
     ensure  => file,
