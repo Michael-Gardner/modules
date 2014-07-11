@@ -19,17 +19,13 @@ class hpcc_build_dep (
 
   if ( $create_cmake_from_source ) {
 
-    $source_dir = regsubst($cmake_file, '.tar.gz','')
+    $source_dir    = regsubst($cmake_file, '.tar.gz','')
+    $cmake_version = regsubst($source_dir, 'cmake-','')
 
     file { 'cmake source':
       ensure => file,
       path   => "/tmp/${cmake_file}",
       source => "puppet:///modules/hpcc_build_dep/${cmake_file}",
-    }
-    
-    exec { 'check cmake version':
-      path    => '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin',
-      command => 'bash -c \'STR=$(cmake --verson);NSTR=${STR:0:5}-${STR:14};test \'$NSTR\' != \'"${source_dir}"\'\'',
     }
 
     exec { 'cmake bootstrap and install':
@@ -40,9 +36,9 @@ class hpcc_build_dep (
       require     => [Package['make'], Package['gcc']], 
       timeout     => '500',
     }
-     
-    Exec['check cmake version'] ->
+    if ( $::cmake_version != $cmake_version ) { 
       File['cmake source'] ~>
         Exec['cmake bootstrap and install']
+    }
   }
 }
