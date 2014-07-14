@@ -4,18 +4,16 @@
 # License:  GPL v3
 #
 class hpcc_build_dep (
-  $dependency_list          = $hpcc_build_dep::params::dependency_list,
+  $dependency_hash          = $hpcc_build_dep::params::dependency_hash,
   $create_cmake_from_source = $hpcc_build_dep::params::create_cmake_from_source,
   $cmake_file               = $hpcc_build_dep::params::cmake_file,
 ) inherits hpcc_build_dep::params
 {
-  validate_array($dependency_list)
+  validate_hash($dependency_hash)
   validate_string($cmake_file)
   validate_bool($create_cmake_from_source)
 
-  package { $dependency_list :
-    ensure => present,
-  }
+  create_resources(package, $dependency_hash)
 
   if ( $create_cmake_from_source ) {
 
