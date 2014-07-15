@@ -33,5 +33,5 @@ class pconf::params
   $pluginsync     = 'true'
   $report         = 'true'
   $reports        = 'store, http'
-  $reporturl      = 'http://centos6-c1.localdomain:3000/reports'
+  $reporturl      = "http://${::servername}:3000/reports"
 }
