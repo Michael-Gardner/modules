@@ -12,6 +12,9 @@ class pconf
   $basemodulepath = $pconf::params::basemodulepath,
   $autosign       = $pconf::params::autosign,
   $pluginsync     = $pconf::params::pluginsync,
+  $report         = $pconf::params::report,
+  $reports        = $pconf::params::reports,
+  $reporturl      = $pconf::params::reporturl,
 ) inherits pconf::params {
   file { "puppet.conf":
     path    => "/etc/puppet/puppet.conf",
