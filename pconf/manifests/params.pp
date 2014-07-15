@@ -25,13 +25,15 @@
 #   that has the appropriate whitelist settings
 class pconf::params
 {
-  $servername     = $::servername 
-  $environment    = 'production'
-  $runinterval    = '30m'
-  $basemodulepath = '/usr/share/puppet/modules'
-  $autosign       = 'false'
-  $pluginsync     = 'true'
-  $report         = 'true'
-  $reports        = 'store, http'
-  $reporturl      = "http://${::servername}:3000/reports"
+  $servername          = $::servername 
+  $environment         = 'production'
+  $runinterval         = '30m'
+  $basemodulepath      = '/usr/share/puppet/modules'
+  $autosign            = 'false'
+  $pluginsync          = 'true'
+  $report              = 'true'
+  $reports             = 'store, http'
+  $reporturl           = "http://${::servername}:3000/reports"
+  $archive_files       = 'false'
+  $archive_file_server = $::servername
 }
