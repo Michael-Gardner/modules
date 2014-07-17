@@ -12,7 +12,12 @@ class hosts::params
 {
   $servername = $::servername
   $serverip   = $::serverip
-
+  $external_nodes = {
+    one => {
+      'hostname'  => 'daily-build-centos-6',
+      'ipaddress' => '10.176.32.17', 
+    },
+  }
   case $::operatingsystem {
     'Ubuntu': { $host_source = "ubuntu.hosts.erb" }
     'CentOS': { $host_source = "centos.hosts.erb" }

@@ -8,3 +8,7 @@ ff02::1     ip6-allnodes
 ff02::2     ip6-allrouters
 
 <%= @serverip %>    <%= @servername %>
+
+<% @external_nodes.each_pair do |key, value_hash| -%>
+<%= value_hash['ipaddress'] %>  <%= value_hash['hostname'] %>
+<% end -%>
