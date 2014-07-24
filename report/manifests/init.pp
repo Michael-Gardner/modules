@@ -4,7 +4,7 @@ class report
 {
   $_github = str2bool($github)
 
-  if ( $_github ) {
+  if ( !$_github ) {
     err("github is unreachable from this node")
   }
 }
