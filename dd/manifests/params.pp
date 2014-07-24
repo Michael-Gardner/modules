@@ -8,5 +8,5 @@
 #
 class dd::params
 {
-  $dirpath = '/var/lib/jenkins/workspace',
+  $dirpath = '/var/lib/jenkins/workspace'
 }
