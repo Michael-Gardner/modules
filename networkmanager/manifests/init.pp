@@ -11,5 +11,14 @@ class networkmanager
       ensure => $ensure,
       enable => $enable,
     }
+    
+    if ($::operatingsystemmajrelease == '5' ) {
+      file { '/etc/resolv.conf':
+        path   => '/etc/resolv.conf',
+        ensure => file,
+        source => "puppet:///modules/networkmanager/resolv.conf",
+      }
+
+    }
   }
 }

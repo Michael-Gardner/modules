@@ -1,5 +1,5 @@
 class networkmanager::params
 {
   $ensure = "stopped"
-  $enable = false,
+  $enable = false
 }
