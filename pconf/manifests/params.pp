@@ -36,4 +36,5 @@ class pconf::params
   $reporturl           = "http://${::servername}:3000/reports"
   $archive_files       = 'false'
   $archive_file_server = $::servername
+  $log_level           = 'warning'
 }

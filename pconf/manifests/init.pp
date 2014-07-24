@@ -17,6 +17,7 @@ class pconf
   $reporturl           = $pconf::params::reporturl,
   $archive_files       = $pconf::params::archive_files,
   $archive_file_server = $pconf::params::archive_file_server,
+  $log_level           = $pconf::params::log_level,
 ) inherits pconf::params {
   file { "puppet.conf":
     path    => "/etc/puppet/puppet.conf",
