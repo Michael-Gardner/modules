@@ -8,7 +8,6 @@
 #
 class dd::params
 {
-  $pattern = ''
   $dirpath = '/var/lib/jenkins/workspace'
   $age     = '1w'
 }
