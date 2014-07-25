@@ -1,6 +1,16 @@
 # storage_used.rb
+def getstoragemetrics
+  output = Facter::Util::Resolution.exec('/bin/bash -c \'df -t nfs -t ext2 -t ext3 -t ext4\'')
+  output = output.lines
+  for element in output
+    puts element
+  end
+end
+
+
+
 Facter.add('storage_used') do
   setcode do
-    Facter::Util::Resolution.exec('/bin/bash -c \'ping -c 1 svn.br.seisint.com &> /dev/null; [[ $? == 0 ]] && echo true || echo false\'')
+    getstoragemetrics
   end
 end
