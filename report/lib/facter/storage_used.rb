@@ -3,7 +3,7 @@ output_string = Facter::Util::Resolution.exec('/bin/bash -c \'df -t nfs -t ext2 
 # split into array and drop the header
 output_array = output_string.split("\n")
 output_array.drop(1)
-dHash = {}
+dHash = Hash.new
 until output_array.empty? do
   key = output_array.at(1)
   val = output_array.at(5)
