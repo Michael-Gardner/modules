@@ -1,26 +1,22 @@
 # storage_used.rb
 output_string = Facter::Util::Resolution.exec('/bin/bash -c \'df -t nfs -t ext2 -t ext3 -t ext4\'')
 # split into array and drop the header
-output_array = output_string.split("\n")
-output_array.drop(1)
-dHash = Hash.new
+output_array = output_string.split()
+output_array.drop(7)
+device = Array.new
+pused  = Array.new
 until output_array.empty? do
-  key = output_array.at(1)
-  val = output_array.at(5)
-  dHash[key] = val
+  device.push(output_array.at(1).to_s)
+  pused.push(output_array.at(5).to_s)
   output_array.drop(6)
 end
 
-Facter.add("drive_usage") do
-  setcode do
-    dHash["/dev/vda1"]
+i = device.size
+while i > 0 do
+  Facter.add(device.at(i).to_s) do
+    setcode do
+      pused.at(i).to_s
+    end
   end
+  i -= 1
 end
-  
-#dHash.each do |key, value|
-#  Facter.add("drive_" + key) do
-#    setcode do
-#      value
-#    end
-#  end
-#end
