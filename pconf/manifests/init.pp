@@ -20,6 +20,7 @@ class pconf
   $log_level            = $pconf::params::log_level,
   $storeconfigs         = $pconf::params::storeconfigs,
   $storeconfigs_backend = $pconf::params::storeconfigs_backend,
+  $stringify_facts      = $pconf::params::stringify_facts,
 ) inherits pconf::params {
   file { "puppet.conf":
     path    => "/etc/puppet/puppet.conf",

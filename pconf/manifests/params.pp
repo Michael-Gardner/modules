@@ -39,4 +39,5 @@ class pconf::params
   $log_level            = 'warning'
   $storeconfigs         = 'false'
   $storeconfigs_backend = 'puppetdb'
+  $stringify_facts      = 'false'
 }
