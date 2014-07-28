@@ -20,6 +20,6 @@ end
 
 Facter.add("disk_usage") do
   setcode do
-    duVal dhash.to_json
+    duVal = dhash.to_json
   end
 end
