@@ -4,11 +4,17 @@ output_string = Facter::Util::Resolution.exec('/bin/bash -c \'df -t nfs -t ext2 
 output_array = output_string.split("\n")
 output_array.drop(1)
 dHash = {}
-until output_array.empty do
-#  key = output_array.at(1)
-#  val = output_array.at(5)
-#  dHash[key] = val
-#  output_array.drop(6)
+until output_array.empty? do
+  key = output_array.at(1)
+  val = output_array.at(5)
+  dHash[key] = val
+  output_array.drop(6)
+end
+
+Facter.add("drive_usage") do
+  setcode do
+    dHash["/dev/vda1"]
+  end
 end
   
 #dHash.each do |key, value|
