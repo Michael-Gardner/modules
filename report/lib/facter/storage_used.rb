@@ -1,4 +1,3 @@
-require 'json'
 # storage_used.rb
 output_string = Facter::Util::Resolution.exec('/bin/bash -c \'df -t nfs -t ext2 -t ext3 -t ext4\'')
 # split into array and drop the header
@@ -11,15 +10,9 @@ while output_array.size > 0
 end
 
 dhash.each do |key, dhVal|
-  Facter.add(key) do
+  Facter.add("disk_" + key) do
     setcode do
       dhVal
     end
-  end
-end
-
-Facter.add("disk_usage") do
-  setcode do
-    duVal = dhash.to_json
   end
 end
