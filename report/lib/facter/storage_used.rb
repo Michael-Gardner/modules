@@ -11,11 +11,11 @@ until output_array.empty? do
   output_array.drop(6)
 end
 
-#Facter.add("drive_usage") do
-#  setcode do
-#    dHash["/dev/vda1"]
-#  end
-#end
+Facter.add("drive_usage") do
+  setcode do
+    dHash["/dev/vda1"]
+  end
+end
   
 #dHash.each do |key, value|
 #  Facter.add("drive_" + key) do
