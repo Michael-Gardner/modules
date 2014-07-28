@@ -4,10 +4,6 @@ def getstoragemetrics
   # split into array and drop the header
   output_array = output_string.split()
   output_array = output_array.drop(7)
-  
-  
-  
-  end
 end
 
 
