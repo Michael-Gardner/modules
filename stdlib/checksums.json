@@ -1,5 +1,5 @@
 {
-  "CHANGELOG.md": "55f3cd655c115667768a32709ac2d8b7",
+  "CHANGELOG.md": "f4d41d7507bfaa0289dada8a47a48d7c",
   "CONTRIBUTING.md": "7fcaaec4913b3d7c123510329ecc4b2d",
   "Gemfile": "ae62c847004904a2d454db44d6b5bd03",
   "LICENSE": "38a048b9d82e713d4e1b2573e370a756",
@@ -115,7 +115,7 @@
   "lib/puppet/type/file_line.rb": "a1eceef6bd7cbfe99892cf3ee57ef2b4",
   "manifests/init.pp": "f2ba5f36e7227ed87bbb69034fc0de8b",
   "manifests/stages.pp": "cc6ed1751d334b0ea278c0335c7f0b5a",
-  "metadata.json": "86a8b75788c648cfbaf5a0824dd82d17",
+  "metadata.json": "f5c39a33617e9600b41a12f4d033715a",
   "spec/acceptance/abs_spec.rb": "435478ef1ba43a6cca1f7b4db14a4bcc",
   "spec/acceptance/any2array_spec.rb": "78187dc3683c8ecd15774d99024de47d",
   "spec/acceptance/base64_spec.rb": "1684d5dd176dd5bbd4c3c6b1e64fbcea",
