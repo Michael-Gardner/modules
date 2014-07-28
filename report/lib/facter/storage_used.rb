@@ -5,7 +5,9 @@ output_array = output_string.split("\n")
 output_array.drop(1)
 dHash = {}
 until output_array.empty? do
-  dHash[output_array.at(1)] = output_array.at(5)
+  key = output_array.at(1)
+  val = output_array.at(5)
+  dHash[key] = val
   output_array.drop(6)
 end
   
