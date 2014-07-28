@@ -1,9 +1,12 @@
 # storage_used.rb
 def getstoragemetrics
-  output = Facter::Util::Resolution.exec('/bin/bash -c \'df -t nfs -t ext2 -t ext3 -t ext4\'')
-  output = output.lines
-  for element in output
-    puts element
+  output_string = Facter::Util::Resolution.exec('/bin/bash -c \'df -t nfs -t ext2 -t ext3 -t ext4\'')
+  # split into array and drop the header
+  output_array = output_string.split()
+  output_array = output_array.drop(7)
+  
+  
+  
   end
 end
 
