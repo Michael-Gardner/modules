@@ -37,6 +37,6 @@ class pconf::params
   $archive_files        = 'false'
   $archive_file_server  = $::servername
   $log_level            = 'warning'
-  $storeconfigs         = 'true'
+  $storeconfigs         = 'false'
   $storeconfigs_backend = 'puppetdb'
 }
