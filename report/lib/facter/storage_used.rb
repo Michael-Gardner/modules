@@ -11,6 +11,8 @@ end
 
 dhash.each do |key, value|
   Facter.add(key) do
-    setcode value
+    setcode do
+      value
+    end
   end
 end
