@@ -1,8 +1,11 @@
 #!/usr/bin/env ruby
 
 directory = <%= @directory %>
-age           = <%= @age %>
-pattern    = <%= @pattern %>
+age = <%= @age %>
+pattern = Array.new
+<%  @pattern.each do |e| %>
+pattern.push(<%= e %>
+<% end %>
 
 # constants
 Minute = 60
