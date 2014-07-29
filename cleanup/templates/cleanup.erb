@@ -3,7 +3,7 @@
 directory = <%= @directory %>
 age = <%= @age %>
 pattern = Array.new
-<%  @pattern.each do |e| %>
+<%  @pattern.each do |e| -%>
 pattern.push(<%= e %>)
 <% end %>
 
