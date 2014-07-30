@@ -32,7 +32,8 @@ end
 # jump into target directory and start parsing for child directories
 # and match the to our pattern
 Dir.chdir(directory)
-dir_contains, dir_list = Array.new
+dir_contains = Array.new
+dir_list = Array.new
 pattern.each { |p| dir_contains.push(Dir[p]) }
 dir_contains.flatten!.each do |f|
   File.directory?(f) ? dir_list.push(f) : nil
