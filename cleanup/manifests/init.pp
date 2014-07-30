@@ -22,7 +22,7 @@ class cleanup
   
   exec { 'cleanup.rb':
     path        => '/usr/local/bin',
-    refreshonly => true,
+    refreshonly => false,
     command     => 'cleanup.rb',
   }
 
@@ -31,7 +31,7 @@ class cleanup
   
   if !empty($pattern) {
     Anchor['cleanup::begin']->
-      File['cleanup']~>
+      File['cleanup']->
         Exec['cleanup.rb']->
           Anchor['cleanup::end']
   }
