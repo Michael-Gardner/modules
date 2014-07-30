@@ -1,18 +1,19 @@
-#! /usr/bin/ruby
+#! /usr/bin/env ruby
+
+require 'fileutils'
 
 directory = "<%= @directory %>"
 age = "<%= @age %>"
 pattern = Array.new
 <%  @pattern.each do |e| -%>
 pattern.push("<%= e %>")
-<% end %>
-
+<% end -%>
 
 # constants
 Minute = 60
-Hour     = 3600
-Day       = 86400
-Week    = 604800
+Hour = 3600
+Day = 86400
+Week = 604800
 
 # setup age modifcation
 age_mod    = age[-1]
