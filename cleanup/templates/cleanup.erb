@@ -43,6 +43,7 @@ end
 # requirements
 dir_list.each do |d|
   if (( Time.now - File.stat(d).mtime).to_f / divisor.to_f ) > 1.0 then
-    FileUtils.rm_rf(d)
+    #FileUtils.rm_rf(d)
+    puts d + "would have been deleted"
   end
 end
