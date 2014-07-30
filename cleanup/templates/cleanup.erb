@@ -42,7 +42,7 @@ end
 # now do our age metrics and remove the directories that meet our
 # requirements
 dir_list.each do |d|
-  if (( Time.now - File.stat(d).mtime).to_i / divisor.to_i ) > 1.0 then
+  if (( Time.now - File.stat(d).mtime).to_f / divisor.to_f ) > 1.0 then
     FileUtils.rm_rf(d)
   end
 end
