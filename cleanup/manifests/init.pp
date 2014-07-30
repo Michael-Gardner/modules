@@ -12,12 +12,12 @@ class cleanup
   validate_absolute_path($directory)
     
   file { 'cleanup':
-    path   => '/usr/local/bin/cleanup.rb',
-    ensure => file,
-    owner  => "root",
-    group  => "root",
-    mode   => "0755",
-    source => template('cleanup/cleanup.erb'),
+    path    => '/usr/local/bin/cleanup.rb',
+    ensure  => file,
+    owner   => "root",
+    group   => "root",
+    mode    => "0755",
+    content => template('cleanup/cleanup.erb'),
   }
   
   exec { 'cleanup.rb':
