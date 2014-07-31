@@ -6,11 +6,11 @@
     server = <%= @servername %>
     environmentpath = $confdir/environments
     basemodulepath = <%= @basemodulepath %>
-    pluginsync = <%= @pluginsync %>
-    archive_files = <%= @archive_files %>
+    pluginsync = <%= @pluginsync.to_s %>
+    archive_files = <%= @archive_files.to_s %>
     archive_file_server = <%= @archive_file_server %>
     log_level = <%= @log_level %>
-    stringify_facts = <%= @stringify_facts %>
+    stringify_facts = <%= @stringify_facts.to_s %>
 
 [agent]
     environment = <%= @environment %>
@@ -18,8 +18,8 @@
     report      = <%= @report %>
 
 [master]
-	autosign			 = <%= @autosign %>
-	reports				 = <%= @reports %>
+	autosign			 = <%= @autosign.to_s %>
+	reports				 = <%= @reports.to_s %>
 	reporturl			 = <%= @reporturl %>
-  storeconfigs   = <%= @storeconfigs %>
+  storeconfigs   = <%= @storeconfigs.to_s %>
   storeconfigs_backend = <%= @storeconfigs_backend %>
