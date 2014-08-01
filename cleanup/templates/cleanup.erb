@@ -6,7 +6,7 @@ directory = "<%= @directory %>"
 age = "<%= @age %>"
 pattern = Array.new
 <%  @pattern.each do |e| -%>
-pattern.push("<%=  + e %>")
+pattern.push("<%= e %>")
 <% end -%>
 
 # constants
