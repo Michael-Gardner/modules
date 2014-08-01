@@ -2,11 +2,11 @@
 
 require 'fileutils'
 
-directory = "<%= @directory %>"
-age = "<%= @age %>"
+directory = <%= @directory.to_s %>
+age = <%= @age.to_s %>
 pattern = Array.new
 <%  @pattern.each do |e| -%>
-pattern.push("<%= e %>")
+pattern.push(<%= e.to_s %>)
 <% end -%>
 
 # constants
@@ -30,7 +30,7 @@ when "w" then (Week * age_scalar)
 end
 
 # jump into target directory and start parsing for child directories
-# and match the to our pattern
+# and match them to our patterns
 Dir.chdir(directory)
 dir_contains = Array.new
 dir_list = Array.new
