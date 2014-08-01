@@ -21,6 +21,13 @@ class cleanup
       content => template('cleanup/cleanup.erb'),
     }
     
+    cron { 'cleanup.rb':
+      ensure  => present,
+      command => '/usr/local/bin/cleanup.rb',
+      user    => root,
+      minute  => '',
+    }
+    
     exec { 'cleanup.rb':
       path        => '/usr/local/bin',
       refreshonly => false,
