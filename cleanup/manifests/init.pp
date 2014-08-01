@@ -12,27 +12,27 @@ class cleanup
   validate_absolute_path($directory)
   
   if !empty($pattern) {  
-  file { 'cleanup':
-    path    => '/usr/local/bin/cleanup.rb',
-    ensure  => file,
-    owner   => "root",
-    group   => "root",
-    mode    => "0755",
-    content => template('cleanup/cleanup.erb'),
-  }
-  
-  exec { 'cleanup.rb':
-    path        => '/usr/local/bin',
-    refreshonly => false,
-    command     => 'cleanup.rb',
-  }
+    file { 'cleanup':
+      path    => '/usr/local/bin/cleanup.rb',
+      ensure  => file,
+      owner   => "root",
+      group   => "root",
+      mode    => "0755",
+      content => template('cleanup/cleanup.erb'),
+    }
+    
+    exec { 'cleanup.rb':
+      path        => '/usr/local/bin',
+      refreshonly => false,
+      command     => 'cleanup.rb',
+    }
 
-  anchor { cleanup::begin: }
-  anchor { cleanup::end: }
+    anchor { cleanup::begin: }
+    anchor { cleanup::end: }
   
-  Anchor['cleanup::begin']->
-    File['cleanup']->
-      Exec['cleanup.rb']->
-        Anchor['cleanup::end']
+    Anchor['cleanup::begin']->
+      File['cleanup']->
+        Exec['cleanup.rb']->
+          Anchor['cleanup::end']
   }
 }
