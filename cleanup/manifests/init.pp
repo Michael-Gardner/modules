@@ -29,7 +29,7 @@ class cleanup
   anchor { cleanup::begin: }
   anchor { cleanup::end: }
   
-  if !empty($pattern) {
+  if size($pattern) > 0 {
     Anchor['cleanup::begin']->
       File['cleanup']->
         Exec['cleanup.rb']->
