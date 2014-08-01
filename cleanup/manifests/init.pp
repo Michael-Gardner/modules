@@ -10,7 +10,8 @@ class cleanup
   validate_array($pattern)
   validate_string($age)
   validate_absolute_path($directory)
-    
+  
+  if !empty($pattern) {  
   file { 'cleanup':
     path    => '/usr/local/bin/cleanup.rb',
     ensure  => file,
@@ -29,10 +30,9 @@ class cleanup
   anchor { cleanup::begin: }
   anchor { cleanup::end: }
   
-  if size($pattern) > 0 {
-    Anchor['cleanup::begin']->
-      File['cleanup']->
-        Exec['cleanup.rb']->
-          Anchor['cleanup::end']
+  Anchor['cleanup::begin']->
+    File['cleanup']->
+      Exec['cleanup.rb']->
+        Anchor['cleanup::end']
   }
 }
