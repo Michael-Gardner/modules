@@ -11,7 +11,7 @@ class cleanup
   validate_string($age)
   validate_absolute_path($directory)
   
-  if !empty($pattern) {  
+  unless empty($pattern) {  
     file { 'cleanup':
       path    => '/usr/local/bin/cleanup.rb',
       ensure  => file,
