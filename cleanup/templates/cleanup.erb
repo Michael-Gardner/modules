@@ -2,11 +2,11 @@
 
 require 'fileutils'
 
-directory = <%= @directory.to_s %>
-age = <%= @age.to_s %>
+directory = "<%= @directory %>"
+age = "<%= @age %>"
 pattern = Array.new
 <%  @pattern.each do |e| -%>
-pattern.push(<%= e.to_s %>)
+pattern.push("<%=  + e %>")
 <% end -%>
 
 # constants
