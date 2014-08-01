@@ -30,6 +30,7 @@ class cleanup
     anchor { cleanup::begin: }
     anchor { cleanup::end: }
   
+    info("Running cleanup script on ${directory}")
     Anchor['cleanup::begin']->
       File['cleanup']->
         Exec['cleanup.rb']->
