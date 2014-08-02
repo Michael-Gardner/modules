@@ -3,11 +3,13 @@
 #     your life will suffer greatly.  You have been warned.
 class cleanup
 ( $pattern,
-  $age       = $cleanup::params::age,
-  $directory = $cleanup::params::directory,
+  $age        = $cleanup::params::age,
+  $directory  = $cleanup::params::directory,
+  $cronminute = $cleanup::params::cronminute,
+  $cronhour   = $cleanup::params::cronhour,
 ) inherits cleanup::params
 {
-  validate_array($pattern)
+  validate_array($pattern,$cronminute,$cronhour)
   validate_string($age)
   validate_absolute_path($directory)
   
@@ -25,8 +27,8 @@ class cleanup
       ensure  => present,
       command => '/usr/local/bin/cleanup.rb',
       user    => root,
-      minute  => 0,
-      hour    => [8,20],
+      minute  => $cronminute,
+      hour    => $cronhour,
     }
     
     anchor { cleanup::begin: }
