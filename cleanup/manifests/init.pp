@@ -25,15 +25,10 @@ class cleanup
       ensure  => present,
       command => '/usr/local/bin/cleanup.rb',
       user    => root,
-      minute  => '',
+      minute  => 0,
+      hour    => [8,20],
     }
     
-    exec { 'cleanup.rb':
-      path        => '/usr/local/bin',
-      refreshonly => false,
-      command     => 'cleanup.rb',
-    }
-
     anchor { cleanup::begin: }
     anchor { cleanup::end: }
   
