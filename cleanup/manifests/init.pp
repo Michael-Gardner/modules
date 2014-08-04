@@ -34,7 +34,7 @@ class cleanup
 
     Anchor['cleanup::begin']->
       File['cleanup']->
-        Exec['cleanup.rb']->
+        Cron['cleanup.rb']->
           Anchor['cleanup::end']
   }
 }
