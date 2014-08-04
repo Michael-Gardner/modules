@@ -4,6 +4,8 @@
 # directory is the base location to clean from
 class cleanup::params
 {
-  $age       = '1w'
-  $directory = '/var/lib/jenkins/workspace'
+  $age        = '1w'
+  $directory  = '/var/lib/jenkins/workspace'
+  $cronminute = [0]
+  $cronhour   = [6,18]
 }
